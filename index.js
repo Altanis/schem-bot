@@ -3,12 +3,14 @@ require('dotenv/config');
 const { Client, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
+
+const Enmap = require('enmap');
 const moment = require('dayjs');
 
 const client = new Client({ intents: 32767 });
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 
-const sandboxes = new Map();
+const sandboxes = new Enmap({ name: 'sandboxes' });
 
 const IDS = {
     Channel: '967166195067400242',
