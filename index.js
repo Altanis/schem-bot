@@ -56,7 +56,7 @@ client.on('interactionCreate', function(interaction) {
                 let link = interaction.options.getString('link');
 
                 link = link.startsWith('https://') ? link : `https://${link}`;
-                if (!/diep\.io\/#[0-9a-f]+/i.test(link) || link.length < 90 || link.length > 110) return interaction.reply({ content: 'Invalid link.', ephemeral: true });
+                if (!/diep\.io\/#[0-9a-f]+/i.test(link) || !/^[0-9a-fA-F]+$/.test(link.split('#')[1]) link.length < 90 || link.length > 110) return interaction.reply({ content: 'Invalid link.', ephemeral: true });
 
                 const embed = new MessageEmbed()
                     .setTitle('New Sandbox')
